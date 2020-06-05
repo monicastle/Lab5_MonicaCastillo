@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 /**
@@ -41,41 +42,17 @@ public class Principal extends javax.swing.JFrame {
         EliminarVillano = new javax.swing.JMenuItem();
         ModificarVillano = new javax.swing.JMenuItem();
         VentanaEscuadronSuperheroes = new javax.swing.JFrame();
-        LideresSuperHeroe = new javax.swing.JComboBox<>();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        NombreEscuadron = new javax.swing.JTextField();
-        BaseEscuadron = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        ListaEscuadronSuperHeroes = new javax.swing.JList<>();
-        jLabel17 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        JtreeEscuadronSuperheroes = new javax.swing.JTree();
-        jLabel18 = new javax.swing.JLabel();
+        MiembrosSuperheroes = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
+        AgregarMiembroSuperheroe = new javax.swing.JButton();
         VentanaEscuadronVillanos = new javax.swing.JFrame();
-        LideresVillanos = new javax.swing.JComboBox<>();
+        MiembrosVillanos = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        ListaEscuadronVillanos = new javax.swing.JList<>();
-        NombreEscuadronVillanos = new javax.swing.JTextField();
-        BaseEscuadronVillanos = new javax.swing.JTextField();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        JtreeEscuadronVillanos = new javax.swing.JTree();
-        jLabel25 = new javax.swing.JLabel();
-        PopUpEscuadronSuperheroes = new javax.swing.JPopupMenu();
+        AgregarMiembroVillano = new javax.swing.JButton();
+        PopUpEscuadron = new javax.swing.JPopupMenu();
         EliminarEscuadronSuperHeroes = new javax.swing.JMenuItem();
         ModificarEscuadronSuperheroes = new javax.swing.JMenuItem();
-        PopUpEscuadronVillanos = new javax.swing.JPopupMenu();
-        EliminarEscuadronVillanos = new javax.swing.JMenuItem();
-        ModificarEscuadronVillanos = new javax.swing.JMenuItem();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -103,8 +80,20 @@ public class Principal extends javax.swing.JFrame {
         ListaVillanos = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        EscuadronSuperHeroes = new javax.swing.JButton();
-        EscuadronVillanos = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        nombreescuadron = new javax.swing.JTextField();
+        baseescuadron = new javax.swing.JTextField();
+        superheroeradioescua = new javax.swing.JRadioButton();
+        villanoradioescua = new javax.swing.JRadioButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        ListaEscuadrones = new javax.swing.JList<>();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        JtreeEscuadrones = new javax.swing.JTree();
+        AgregarEscuadrones = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         EliminarSuperheroe.setText("Eliminar Super Heroe");
@@ -139,185 +128,80 @@ public class Principal extends javax.swing.JFrame {
         });
         PopUpVillanos.add(ModificarVillano);
 
-        jLabel12.setText("Agregar Escuadron");
+        jLabel29.setText("Seleccione un miembro");
 
-        jLabel13.setText("Nombre");
-
-        jLabel14.setText("Lugar de su base");
-
-        jLabel15.setText("Lider");
-
-        jLabel16.setText("Lista Miembros");
-
-        ListaEscuadronSuperHeroes.addMouseListener(new java.awt.event.MouseAdapter() {
+        AgregarMiembroSuperheroe.setText("Agregar Miembro");
+        AgregarMiembroSuperheroe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ListaEscuadronSuperHeroesMouseClicked(evt);
+                AgregarMiembroSuperheroeMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(ListaEscuadronSuperHeroes);
-
-        jLabel17.setText("Lista Escuadrones");
-
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        JtreeEscuadronSuperheroes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane4.setViewportView(JtreeEscuadronSuperheroes);
-
-        jLabel18.setText("Jtree Escuadrones");
 
         javax.swing.GroupLayout VentanaEscuadronSuperheroesLayout = new javax.swing.GroupLayout(VentanaEscuadronSuperheroes.getContentPane());
         VentanaEscuadronSuperheroes.getContentPane().setLayout(VentanaEscuadronSuperheroesLayout);
         VentanaEscuadronSuperheroesLayout.setHorizontalGroup(
             VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaEscuadronSuperheroesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addGap(150, 150, 150))
             .addGroup(VentanaEscuadronSuperheroesLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
-                .addGap(30, 30, 30)
                 .addGroup(VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VentanaEscuadronSuperheroesLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
-                        .addComponent(jLabel17)
-                        .addGap(158, 158, 158))
+                        .addGap(56, 56, 56)
+                        .addComponent(MiembrosSuperheroes, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(VentanaEscuadronSuperheroesLayout.createSequentialGroup()
-                        .addGroup(VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(BaseEscuadron, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NombreEscuadron, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LideresSuperHeroe, 0, 215, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane4)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
-                        .addGap(35, 35, 35))))
+                        .addGap(107, 107, 107)
+                        .addComponent(jLabel29))
+                    .addGroup(VentanaEscuadronSuperheroesLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(AgregarMiembroSuperheroe)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         VentanaEscuadronSuperheroesLayout.setVerticalGroup(
             VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VentanaEscuadronSuperheroesLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel17))
-                .addGap(21, 21, 21)
-                .addGroup(VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(VentanaEscuadronSuperheroesLayout.createSequentialGroup()
-                        .addGroup(VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VentanaEscuadronSuperheroesLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel14))
-                            .addGroup(VentanaEscuadronSuperheroesLayout.createSequentialGroup()
-                                .addComponent(NombreEscuadron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(BaseEscuadron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(30, 30, 30)
-                        .addGroup(VentanaEscuadronSuperheroesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(LideresSuperHeroe, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel16))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaEscuadronSuperheroesLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel29)
+                .addGap(60, 60, 60)
+                .addComponent(MiembrosSuperheroes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addComponent(AgregarMiembroSuperheroe)
+                .addGap(20, 20, 20))
         );
 
-        jLabel19.setText("Agregar Escuadron");
+        jLabel19.setText("Agregar Miembro");
 
-        jLabel20.setText("Nombre");
-
-        jLabel21.setText("Lugar de su base");
-
-        jLabel22.setText("Lider");
-
-        jLabel23.setText("Lista Miembros");
-
-        jLabel24.setText("Lista Escuadrones");
-
-        ListaEscuadronVillanos.addMouseListener(new java.awt.event.MouseAdapter() {
+        AgregarMiembroVillano.setText("Agregar Miembro");
+        AgregarMiembroVillano.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ListaEscuadronVillanosMouseClicked(evt);
+                AgregarMiembroVillanoMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(ListaEscuadronVillanos);
-
-        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        JtreeEscuadronVillanos.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane6.setViewportView(JtreeEscuadronVillanos);
-
-        jLabel25.setText("Jtree Escuadrones");
 
         javax.swing.GroupLayout VentanaEscuadronVillanosLayout = new javax.swing.GroupLayout(VentanaEscuadronVillanos.getContentPane());
         VentanaEscuadronVillanos.getContentPane().setLayout(VentanaEscuadronVillanosLayout);
         VentanaEscuadronVillanosLayout.setHorizontalGroup(
             VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VentanaEscuadronVillanosLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23))
-                .addGap(23, 23, 23)
                 .addGroup(VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VentanaEscuadronVillanosLayout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
-                        .addComponent(jLabel24)
-                        .addGap(153, 153, 153))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaEscuadronVillanosLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BaseEscuadronVillanos)
-                            .addComponent(NombreEscuadronVillanos)
-                            .addComponent(LideresVillanos, 0, 200, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane6)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
-                        .addGap(31, 31, 31))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaEscuadronVillanosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel25)
-                .addGap(141, 141, 141))
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel19))
+                    .addGroup(VentanaEscuadronVillanosLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(AgregarMiembroVillano))
+                    .addGroup(VentanaEscuadronVillanosLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(MiembrosVillanos, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         VentanaEscuadronVillanosLayout.setVerticalGroup(
             VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaEscuadronVillanosLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel24))
-                .addGap(28, 28, 28)
-                .addGroup(VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(VentanaEscuadronVillanosLayout.createSequentialGroup()
-                        .addGroup(VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(NombreEscuadronVillanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addGroup(VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel21)
-                            .addComponent(BaseEscuadronVillanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(VentanaEscuadronVillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel22)
-                            .addComponent(LideresVillanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel23))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jLabel25)
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(21, 21, 21)
+                .addComponent(jLabel19)
+                .addGap(39, 39, 39)
+                .addComponent(MiembrosVillanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addComponent(AgregarMiembroVillano)
+                .addGap(40, 40, 40))
         );
 
         EliminarEscuadronSuperHeroes.setText("Eliminar Escuadron");
@@ -326,7 +210,7 @@ public class Principal extends javax.swing.JFrame {
                 EliminarEscuadronSuperHeroesActionPerformed(evt);
             }
         });
-        PopUpEscuadronSuperheroes.add(EliminarEscuadronSuperHeroes);
+        PopUpEscuadron.add(EliminarEscuadronSuperHeroes);
 
         ModificarEscuadronSuperheroes.setText("ModificarEscuadron");
         ModificarEscuadronSuperheroes.addActionListener(new java.awt.event.ActionListener() {
@@ -334,23 +218,7 @@ public class Principal extends javax.swing.JFrame {
                 ModificarEscuadronSuperheroesActionPerformed(evt);
             }
         });
-        PopUpEscuadronSuperheroes.add(ModificarEscuadronSuperheroes);
-
-        EliminarEscuadronVillanos.setText("Eliminar Escuadron");
-        EliminarEscuadronVillanos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarEscuadronVillanosActionPerformed(evt);
-            }
-        });
-        PopUpEscuadronVillanos.add(EliminarEscuadronVillanos);
-
-        ModificarEscuadronVillanos.setText("Modificar Escuadron");
-        ModificarEscuadronVillanos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModificarEscuadronVillanosActionPerformed(evt);
-            }
-        });
-        PopUpEscuadronVillanos.add(ModificarEscuadronVillanos);
+        PopUpEscuadron.add(ModificarEscuadronSuperheroes);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -510,20 +378,39 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agregar SuperHumano", jPanel1);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel6.setText("¿Que tipo de escuadron desea agregar?");
+        jLabel6.setText("Agregar Escuadron");
 
-        EscuadronSuperHeroes.setText("Escuadron de Superheroes");
-        EscuadronSuperHeroes.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel15.setText("Nombre");
+
+        jLabel22.setText("Lugar de la base");
+
+        jLabel26.setText("Tipo de escuadron");
+
+        buttonGroup2.add(superheroeradioescua);
+        superheroeradioescua.setText("Superheroes");
+
+        buttonGroup2.add(villanoradioescua);
+        villanoradioescua.setText("Villanos");
+
+        ListaEscuadrones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EscuadronSuperHeroesMouseClicked(evt);
+                ListaEscuadronesMouseClicked(evt);
             }
         });
+        jScrollPane7.setViewportView(ListaEscuadrones);
 
-        EscuadronVillanos.setText("Escuadron de Villanos");
-        EscuadronVillanos.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel27.setText("Lista Escuadrones");
+
+        jLabel28.setText("Jtree Escuadrones");
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        JtreeEscuadrones.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane8.setViewportView(JtreeEscuadrones);
+
+        AgregarEscuadrones.setText("Agregar Escuadrones");
+        AgregarEscuadrones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EscuadronVillanosMouseClicked(evt);
+                AgregarEscuadronesMouseClicked(evt);
             }
         });
 
@@ -532,27 +419,78 @@ public class Principal extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel27)
+                .addGap(203, 203, 203))
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(EscuadronSuperHeroes, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116)
-                        .addComponent(EscuadronVillanos, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel26))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(superheroeradioescua)
+                                .addGap(10, 10, 10)
+                                .addComponent(villanoradioescua))
+                            .addComponent(baseescuadron)
+                            .addComponent(nombreescuadron)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel6)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addGap(110, 110, 110)
+                        .addComponent(AgregarEscuadrones)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane8)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE))
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addGap(185, 185, 185))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel6)
-                .addGap(72, 72, 72)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EscuadronSuperHeroes, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EscuadronVillanos, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(90, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel27))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(nombreescuadron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(baseescuadron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(superheroeradioescua)
+                            .addComponent(villanoradioescua))
+                        .addGap(7, 7, 7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel28)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(AgregarEscuadrones)
+                        .addContainerGap(171, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("Agregar Escuadron", jPanel2);
@@ -609,13 +547,13 @@ public class Principal extends javax.swing.JFrame {
                         DefaultListModel modelo = (DefaultListModel) ListaVillanos.getModel();
                         modelo.addElement(new Villano(nombre, poder, debilidad, escuadron, fuerza, afisica, amental));
                         ListaVillanos.setModel(modelo);
-                        DefaultComboBoxModel villanolider = (DefaultComboBoxModel) LideresVillanos.getModel();
+                        DefaultComboBoxModel villanolider = (DefaultComboBoxModel) MiembrosVillanos.getModel();
                         villanolider.addElement(new Villano(nombre, poder, debilidad, escuadron, fuerza, afisica, amental));
-                        ListaVillanos.setModel(villanolider);
+                        MiembrosVillanos.setModel(villanolider);
                     } else {
-                        DefaultComboBoxModel heroelider = (DefaultComboBoxModel) LideresSuperHeroe.getModel();
+                        DefaultComboBoxModel heroelider = (DefaultComboBoxModel) MiembrosSuperheroes.getModel();
                         heroelider.addElement(new Villano(nombre, poder, debilidad, escuadron, fuerza, afisica, amental));
-                        ListaSuperHeroes.setModel(heroelider);
+                        MiembrosSuperheroes.setModel(heroelider);
                         DefaultListModel modelo2 = (DefaultListModel) ListaSuperHeroes.getModel();
                         modelo2.addElement(new Villano(nombre, poder, debilidad, escuadron, fuerza, afisica, amental));
                         ListaSuperHeroes.setModel(modelo2);
@@ -773,41 +711,15 @@ public class Principal extends javax.swing.JFrame {
         } // Fin Try Catch
     }//GEN-LAST:event_ModificarVillanoActionPerformed
 
-    private void EscuadronSuperHeroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EscuadronSuperHeroesMouseClicked
-        // TODO add your handling code here:
-        try {
-            VentanaEscuadronSuperheroes.pack();
-            VentanaEscuadronSuperheroes.setVisible(true);
-            VentanaEscuadronSuperheroes.setLocationRelativeTo(null);
-            this.setVisible(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos");
-        } // Fin Try Catch
-    }//GEN-LAST:event_EscuadronSuperHeroesMouseClicked
-
-    private void EscuadronVillanosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EscuadronVillanosMouseClicked
-        // TODO add your handling code here:
-        try {
-            VentanaEscuadronVillanos.pack();
-            VentanaEscuadronVillanos.setVisible(true);
-            VentanaEscuadronVillanos.setLocationRelativeTo(null);
-            this.setVisible(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos");
-        } // Fin Try Catch
-    }//GEN-LAST:event_EscuadronVillanosMouseClicked
-
     private void EliminarEscuadronSuperHeroesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEscuadronSuperHeroesActionPerformed
         // TODO add your handling code here:
-        if (ListaEscuadronSuperHeroes.getSelectedIndex() >= 0) {
-            DefaultListModel modelo
-                    = (DefaultListModel) ListaEscuadronSuperHeroes.getModel();
-            modelo.remove(ListaEscuadronSuperHeroes.getSelectedIndex());
-            ListaEscuadronSuperHeroes.setModel(modelo);
-            JOptionPane.showMessageDialog(this, "¡El escuadron fue eliminado exitosamente!");
-        }
+//        if (ListaEscuadronSuperHeroes.getSelectedIndex() >= 0) {
+//            DefaultListModel modelo
+//                    = (DefaultListModel) ListaEscuadronSuperHeroes.getModel();
+//            modelo.remove(ListaEscuadronSuperHeroes.getSelectedIndex());
+//            ListaEscuadronSuperHeroes.setModel(modelo);
+//            JOptionPane.showMessageDialog(this, "¡El escuadron fue eliminado exitosamente!");
+//        }
         // Falta eliminar miembros del escuadron
     }//GEN-LAST:event_EliminarEscuadronSuperHeroesActionPerformed
 
@@ -815,49 +727,64 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ModificarEscuadronSuperheroesActionPerformed
 
-    private void EliminarEscuadronVillanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEscuadronVillanosActionPerformed
+    private void AgregarMiembroVillanoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarMiembroVillanoMouseClicked
+        // TODO add your handling code here: 
+        String nombre, base;
+        SuperHumano lider;
+        nombre = nombreescuadron.getText();
+        base = baseescuadron.getText();
+        lider = (SuperHumano) MiembrosVillanos.getSelectedItem();
+        DefaultListModel modelo = (DefaultListModel) ListaEscuadrones.getModel();
+        modelo.addElement(new Escuadron(nombre, base, "Villanos", lider));
+        ListaEscuadrones.setModel(modelo);
+        JOptionPane.showMessageDialog(this, "Se ha agregado el escuadron exitosamente");
+        VentanaEscuadronVillanos.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_AgregarMiembroVillanoMouseClicked
+
+    private void AgregarEscuadronesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarEscuadronesMouseClicked
         // TODO add your handling code here:
-        if (ListaEscuadronVillanos.getSelectedIndex() >= 0) {
-            DefaultListModel modelo
-                    = (DefaultListModel) ListaEscuadronVillanos.getModel();
-            modelo.remove(ListaEscuadronVillanos.getSelectedIndex());
-            ListaEscuadronVillanos.setModel(modelo);
-            JOptionPane.showMessageDialog(this, "¡El escuadron fue eliminado exitosamente!");
-//            miembrosvillanos.get(ListaEscuadronVillanos.getSelectedIndex()).setEscuadron(null);
+        if (superheroeradioescua.isSelected()) {
+            VentanaEscuadronSuperheroes.pack();
+            VentanaEscuadronSuperheroes.setVisible(true);
+            VentanaEscuadronSuperheroes.setLocationRelativeTo(null);
+            this.setVisible(false);
+        } else {
+            VentanaEscuadronVillanos.pack();
+            VentanaEscuadronVillanos.setVisible(true);
+            VentanaEscuadronVillanos.setLocationRelativeTo(null);
+            this.setVisible(false);
         }
-    }//GEN-LAST:event_EliminarEscuadronVillanosActionPerformed
+    }//GEN-LAST:event_AgregarEscuadronesMouseClicked
 
-    private void ModificarEscuadronVillanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarEscuadronVillanosActionPerformed
+    private void AgregarMiembroSuperheroeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarMiembroSuperheroeMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_ModificarEscuadronVillanosActionPerformed
+        String nombre, base;
+        SuperHumano lider;
+        nombre = nombreescuadron.getText();
+        base = baseescuadron.getText();
+        lider = (SuperHumano) MiembrosSuperheroes.getSelectedItem();
+        DefaultListModel modelo = (DefaultListModel) ListaEscuadrones.getModel();
+        modelo.addElement(new Escuadron(nombre, base, "Heroes", lider));
+        ListaEscuadrones.setModel(modelo);
+        JOptionPane.showMessageDialog(this, "Se ha agregado el escuadron exitosamente");
+        VentanaEscuadronSuperheroes.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_AgregarMiembroSuperheroeMouseClicked
 
-    private void ListaEscuadronSuperHeroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaEscuadronSuperHeroesMouseClicked
+    private void ListaEscuadronesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaEscuadronesMouseClicked
         // TODO add your handling code here:
         try {
-            if (ListaEscuadronSuperHeroes.getSelectedIndex() >= 0) {
+            if (ListaEscuadrones.getSelectedIndex() >= 0) {
                 if (evt.isMetaDown()) {
-                    PopUpEscuadronSuperheroes.show(evt.getComponent(), evt.getX(), evt.getY());
+                    PopUpEscuadron.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos");
         }
-    }//GEN-LAST:event_ListaEscuadronSuperHeroesMouseClicked
-
-    private void ListaEscuadronVillanosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaEscuadronVillanosMouseClicked
-        // TODO add your handling code here:
-        try {
-            if (ListaEscuadronVillanos.getSelectedIndex() >= 0) {
-                if (evt.isMetaDown()) {
-                    PopUpEscuadronVillanos.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos");
-        }
-    }//GEN-LAST:event_ListaEscuadronVillanosMouseClicked
+    }//GEN-LAST:event_ListaEscuadronesMouseClicked
 
     public boolean ValidacionNombreExistente(String nombre) {
         for (int i = 0; i < nombres.size(); i++) {
@@ -916,60 +843,47 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField AgilidadFisicaSuperHumano;
     private javax.swing.JFormattedTextField AgilidadMetalSuperHumano;
+    private javax.swing.JButton AgregarEscuadrones;
+    private javax.swing.JButton AgregarMiembroSuperheroe;
+    private javax.swing.JButton AgregarMiembroVillano;
     private javax.swing.JButton AgregarSuperHumano;
-    private javax.swing.JTextField BaseEscuadron;
-    private javax.swing.JTextField BaseEscuadronVillanos;
     private javax.swing.JTextField DebilidadSuperHumano;
     private javax.swing.JMenuItem EliminarEscuadronSuperHeroes;
-    private javax.swing.JMenuItem EliminarEscuadronVillanos;
     private javax.swing.JMenuItem EliminarSuperheroe;
     private javax.swing.JMenuItem EliminarVillano;
-    private javax.swing.JButton EscuadronSuperHeroes;
-    private javax.swing.JButton EscuadronVillanos;
     private javax.swing.JFormattedTextField FuerzaSuperHumano;
-    private javax.swing.JTree JtreeEscuadronSuperheroes;
-    private javax.swing.JTree JtreeEscuadronVillanos;
-    private javax.swing.JComboBox<String> LideresSuperHeroe;
-    private javax.swing.JComboBox<String> LideresVillanos;
-    private javax.swing.JList<String> ListaEscuadronSuperHeroes;
-    private javax.swing.JList<String> ListaEscuadronVillanos;
+    private javax.swing.JTree JtreeEscuadrones;
+    private javax.swing.JList<String> ListaEscuadrones;
     private javax.swing.JList<String> ListaSuperHeroes;
     private javax.swing.JList<String> ListaVillanos;
+    private javax.swing.JComboBox<String> MiembrosSuperheroes;
+    private javax.swing.JComboBox<String> MiembrosVillanos;
     private javax.swing.JMenuItem ModificarEscuadronSuperheroes;
-    private javax.swing.JMenuItem ModificarEscuadronVillanos;
     private javax.swing.JMenuItem ModificarSuperheroe;
     private javax.swing.JMenuItem ModificarVillano;
-    private javax.swing.JTextField NombreEscuadron;
-    private javax.swing.JTextField NombreEscuadronVillanos;
     private javax.swing.JTextField NombreSuperHumano;
     private javax.swing.JTextField PoderSuperHumano;
-    private javax.swing.JPopupMenu PopUpEscuadronSuperheroes;
-    private javax.swing.JPopupMenu PopUpEscuadronVillanos;
+    private javax.swing.JPopupMenu PopUpEscuadron;
     private javax.swing.JPopupMenu PopUpSuperheroes;
     private javax.swing.JPopupMenu PopUpVillanos;
     private javax.swing.JRadioButton SuperHeroeRadio;
     private javax.swing.JFrame VentanaEscuadronSuperheroes;
     private javax.swing.JFrame VentanaEscuadronVillanos;
     private javax.swing.JRadioButton VillanoRadio;
+    private javax.swing.JTextField baseescuadron;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -982,11 +896,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField nombreescuadron;
+    private javax.swing.JRadioButton superheroeradioescua;
+    private javax.swing.JRadioButton villanoradioescua;
     // End of variables declaration//GEN-END:variables
 private ArrayList<String> nombres = new ArrayList();
     private ArrayList<Villano> miembrosvillanos = new ArrayList();
