@@ -53,6 +53,9 @@ public class Principal extends javax.swing.JFrame {
         EliminarEscuadronSuperHeroes = new javax.swing.JMenuItem();
         ModificarEscuadronSuperheroes = new javax.swing.JMenuItem();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        PopUpTree = new javax.swing.JPopupMenu();
+        AsignarLider = new javax.swing.JMenuItem();
+        VerDatos = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -219,6 +222,22 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         PopUpEscuadron.add(ModificarEscuadronSuperheroes);
+
+        AsignarLider.setText("Hacer Lider");
+        AsignarLider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AsignarLiderActionPerformed(evt);
+            }
+        });
+        PopUpTree.add(AsignarLider);
+
+        VerDatos.setText("Ver Datos");
+        VerDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerDatosActionPerformed(evt);
+            }
+        });
+        PopUpTree.add(VerDatos);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -405,6 +424,11 @@ public class Principal extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         JtreeEscuadrones.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        JtreeEscuadrones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JtreeEscuadronesMouseClicked(evt);
+            }
+        });
         jScrollPane8.setViewportView(JtreeEscuadrones);
 
         AgregarEscuadrones.setText("Agregar Escuadrones");
@@ -506,7 +530,7 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 424, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab3", jPanel3);
+        jTabbedPane1.addTab("Simulacion", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -713,18 +737,27 @@ public class Principal extends javax.swing.JFrame {
 
     private void EliminarEscuadronSuperHeroesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEscuadronSuperHeroesActionPerformed
         // TODO add your handling code here:
-//        if (ListaEscuadronSuperHeroes.getSelectedIndex() >= 0) {
-//            DefaultListModel modelo
-//                    = (DefaultListModel) ListaEscuadronSuperHeroes.getModel();
-//            modelo.remove(ListaEscuadronSuperHeroes.getSelectedIndex());
-//            ListaEscuadronSuperHeroes.setModel(modelo);
-//            JOptionPane.showMessageDialog(this, "¡El escuadron fue eliminado exitosamente!");
-//        }
-        // Falta eliminar miembros del escuadron
+        if (ListaEscuadrones.getSelectedIndex() >= 0) {
+            DefaultListModel modelo = (DefaultListModel) ListaEscuadrones.getModel();
+            String tipo = ((Escuadron) modelo.get(ListaEscuadrones.getSelectedIndex())).getTipo();
+            modelo.remove(ListaEscuadrones.getSelectedIndex());
+            ListaEscuadrones.setModel(modelo);
+            JOptionPane.showMessageDialog(this, "¡El escuadron fue eliminado exitosamente!");
+        }
+
     }//GEN-LAST:event_EliminarEscuadronSuperHeroesActionPerformed
 
     private void ModificarEscuadronSuperheroesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarEscuadronSuperheroesActionPerformed
         // TODO add your handling code here:
+        if (ListaSuperHeroes.getSelectedIndex() >= 0) {
+            String nombre, base;
+            DefaultListModel modeloLISTA = (DefaultListModel) ListaEscuadrones.getModel();
+            nombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre: ");
+            base = JOptionPane.showInputDialog("Ingrese el nuevo lugar de base: ");
+            ((Escuadron) modeloLISTA.get(ListaEscuadrones.getSelectedIndex())).setNombre(nombre);
+            ((Escuadron) modeloLISTA.get(ListaEscuadrones.getSelectedIndex())).setLugarbase(base);
+            ListaEscuadrones.setModel(modeloLISTA);
+        }
     }//GEN-LAST:event_ModificarEscuadronSuperheroesActionPerformed
 
     private void AgregarMiembroVillanoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarMiembroVillanoMouseClicked
@@ -734,6 +767,7 @@ public class Principal extends javax.swing.JFrame {
         nombre = nombreescuadron.getText();
         base = baseescuadron.getText();
         lider = (SuperHumano) MiembrosVillanos.getSelectedItem();
+        miembrosvillanos.add(lider);
         DefaultListModel modelo = (DefaultListModel) ListaEscuadrones.getModel();
         modelo.addElement(new Escuadron(nombre, base, "Villanos", lider));
         ListaEscuadrones.setModel(modelo);
@@ -764,6 +798,7 @@ public class Principal extends javax.swing.JFrame {
         nombre = nombreescuadron.getText();
         base = baseescuadron.getText();
         lider = (SuperHumano) MiembrosSuperheroes.getSelectedItem();
+        miembrosheroes.add(lider);
         DefaultListModel modelo = (DefaultListModel) ListaEscuadrones.getModel();
         modelo.addElement(new Escuadron(nombre, base, "Heroes", lider));
         ListaEscuadrones.setModel(modelo);
@@ -785,6 +820,28 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos");
         }
     }//GEN-LAST:event_ListaEscuadronesMouseClicked
+
+    private void JtreeEscuadronesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtreeEscuadronesMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            int row = JtreeEscuadrones.getClosestRowForLocation(evt.getX(), evt.getY());
+            JtreeEscuadrones.setSelectionRow(row);
+            Object v1 = JtreeEscuadrones.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Escuadron) {
+                escuadronseleccionado = (Escuadron) nodo_seleccionado.getUserObject();
+                PopUpTree.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_JtreeEscuadronesMouseClicked
+
+    private void AsignarLiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarLiderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AsignarLiderActionPerformed
+
+    private void VerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerDatosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VerDatosActionPerformed
 
     public boolean ValidacionNombreExistente(String nombre) {
         for (int i = 0; i < nombres.size(); i++) {
@@ -847,6 +904,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton AgregarMiembroSuperheroe;
     private javax.swing.JButton AgregarMiembroVillano;
     private javax.swing.JButton AgregarSuperHumano;
+    private javax.swing.JMenuItem AsignarLider;
     private javax.swing.JTextField DebilidadSuperHumano;
     private javax.swing.JMenuItem EliminarEscuadronSuperHeroes;
     private javax.swing.JMenuItem EliminarSuperheroe;
@@ -865,10 +923,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField PoderSuperHumano;
     private javax.swing.JPopupMenu PopUpEscuadron;
     private javax.swing.JPopupMenu PopUpSuperheroes;
+    private javax.swing.JPopupMenu PopUpTree;
     private javax.swing.JPopupMenu PopUpVillanos;
     private javax.swing.JRadioButton SuperHeroeRadio;
     private javax.swing.JFrame VentanaEscuadronSuperheroes;
     private javax.swing.JFrame VentanaEscuadronVillanos;
+    private javax.swing.JMenuItem VerDatos;
     private javax.swing.JRadioButton VillanoRadio;
     private javax.swing.JTextField baseescuadron;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -904,6 +964,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JRadioButton villanoradioescua;
     // End of variables declaration//GEN-END:variables
 private ArrayList<String> nombres = new ArrayList();
-    private ArrayList<Villano> miembrosvillanos = new ArrayList();
-    private ArrayList<Superheroe> miembrosheroes = new ArrayList();
+    private ArrayList<SuperHumano> miembrosvillanos = new ArrayList();
+    private ArrayList<SuperHumano> miembrosheroes = new ArrayList();
+    DefaultMutableTreeNode nodo_seleccionado;
+    Escuadron escuadronseleccionado;
 }
