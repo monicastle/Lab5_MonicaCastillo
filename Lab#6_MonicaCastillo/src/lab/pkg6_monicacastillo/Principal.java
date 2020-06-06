@@ -423,7 +423,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel28.setText("Jtree Escuadrones");
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Escuadrones");
         JtreeEscuadrones.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         JtreeEscuadrones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -773,6 +773,22 @@ public class Principal extends javax.swing.JFrame {
         modelo.addElement(new Escuadron(nombre, base, "Villanos", lider));
         ListaEscuadrones.setModel(modelo);
         JOptionPane.showMessageDialog(this, "Se ha agregado el escuadron exitosamente");
+        DefaultTreeModel m = (DefaultTreeModel) JtreeEscuadrones.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodoescuadron;
+        nodoescuadron = new DefaultMutableTreeNode(new Escuadron(nombre, base, "Villanos", lider));
+        DefaultMutableTreeNode tipo;
+        tipo = new DefaultMutableTreeNode("Villanos");
+        DefaultMutableTreeNode superheroe;
+        superheroe = new DefaultMutableTreeNode(lider.getNombre());
+        DefaultMutableTreeNode poder;
+        poder = new DefaultMutableTreeNode(lider.getPoder());
+        superheroe.add(poder);
+        tipo.add(superheroe);
+        nodoescuadron.add(tipo);
+        raiz.add(nodoescuadron);
+        m.reload();
         VentanaEscuadronVillanos.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_AgregarMiembroVillanoMouseClicked
@@ -859,7 +875,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void VerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerDatosActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_VerDatosActionPerformed
 
     public boolean ValidacionNombreExistente(String nombre) {
