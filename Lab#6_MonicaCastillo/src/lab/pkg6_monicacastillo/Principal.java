@@ -411,6 +411,7 @@ public class Principal extends javax.swing.JFrame {
         buttonGroup2.add(villanoradioescua);
         villanoradioescua.setText("Villanos");
 
+        ListaEscuadrones.setModel(new DefaultListModel());
         ListaEscuadrones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ListaEscuadronesMouseClicked(evt);
@@ -576,10 +577,10 @@ public class Principal extends javax.swing.JFrame {
                         MiembrosVillanos.setModel(villanolider);
                     } else {
                         DefaultComboBoxModel heroelider = (DefaultComboBoxModel) MiembrosSuperheroes.getModel();
-                        heroelider.addElement(new Villano(nombre, poder, debilidad, escuadron, fuerza, afisica, amental));
+                        heroelider.addElement(new Superheroe(nombre, poder, debilidad, escuadron, fuerza, afisica, amental));
                         MiembrosSuperheroes.setModel(heroelider);
                         DefaultListModel modelo2 = (DefaultListModel) ListaSuperHeroes.getModel();
-                        modelo2.addElement(new Villano(nombre, poder, debilidad, escuadron, fuerza, afisica, amental));
+                        modelo2.addElement(new Superheroe(nombre, poder, debilidad, escuadron, fuerza, afisica, amental));
                         ListaSuperHeroes.setModel(modelo2);
                     } // Fin If
                 } else {
@@ -667,12 +668,12 @@ public class Principal extends javax.swing.JFrame {
 //                    nombres.remove(ListaSuperHeroes.getSelectedIndex());
 //                    nombres.add(ListaSuperHeroes.getSelectedIndex(), nombre);
                     if ((ValidacionNumeros(amental, afisica, fuerza) == true)) {
-                        ((Superheroe) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setNombre(nombre);
-                        ((Superheroe) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setPoder(poder);
-                        ((Superheroe) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setDebilidad(debilidad);
-                        ((Superheroe) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setFuerza(fuerza);
-                        ((Superheroe) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setAgilidadfisica(afisica);
-                        ((Superheroe) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setAgilidadmental(amental);
+                        ((SuperHumano) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setNombre(nombre);
+                        ((SuperHumano) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setPoder(poder);
+                        ((SuperHumano) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setDebilidad(debilidad);
+                        ((SuperHumano) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setFuerza(fuerza);
+                        ((SuperHumano) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setAgilidadfisica(afisica);
+                        ((SuperHumano) modeloLISTA.get(ListaSuperHeroes.getSelectedIndex())).setAgilidadmental(amental);
                         ListaSuperHeroes.setModel(modeloLISTA);
                     } else {
                         JOptionPane.showMessageDialog(this, "¡No cuenta con las habilidades necesarias para ser Heroe, por lo que no se realizaron las modificaciones!");
@@ -715,12 +716,12 @@ public class Principal extends javax.swing.JFrame {
 //                    nombres.remove(ListaSuperHeroes.getSelectedIndex());
 //                    nombres.add(ListaSuperHeroes.getSelectedIndex(), nombre);
                     if ((ValidacionNumeros(amental, afisica, fuerza) == true)) {
-                        ((Superheroe) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setNombre(nombre);
-                        ((Superheroe) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setPoder(poder);
-                        ((Superheroe) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setDebilidad(debilidad);
-                        ((Superheroe) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setFuerza(fuerza);
-                        ((Superheroe) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setAgilidadfisica(afisica);
-                        ((Superheroe) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setAgilidadmental(amental);
+                        ((SuperHumano) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setNombre(nombre);
+                        ((SuperHumano) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setPoder(poder);
+                        ((SuperHumano) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setDebilidad(debilidad);
+                        ((SuperHumano) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setFuerza(fuerza);
+                        ((SuperHumano) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setAgilidadfisica(afisica);
+                        ((SuperHumano) modeloLISTA.get(ListaVillanos.getSelectedIndex())).setAgilidadmental(amental);
                         ListaVillanos.setModel(modeloLISTA);
                     } else {
                         JOptionPane.showMessageDialog(this, "¡No cuenta con las habilidades necesarias para ser Villano, por lo que no se realizaron las modificaciones!");
@@ -803,6 +804,23 @@ public class Principal extends javax.swing.JFrame {
         modelo.addElement(new Escuadron(nombre, base, "Heroes", lider));
         ListaEscuadrones.setModel(modelo);
         JOptionPane.showMessageDialog(this, "Se ha agregado el escuadron exitosamente");
+
+        DefaultTreeModel m = (DefaultTreeModel) JtreeEscuadrones.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodoescuadron;
+        nodoescuadron = new DefaultMutableTreeNode(new Escuadron(nombre, base, "Heroes", lider));
+        DefaultMutableTreeNode tipo;
+        tipo = new DefaultMutableTreeNode("Super Heroes");
+        DefaultMutableTreeNode superheroe;
+        superheroe = new DefaultMutableTreeNode(lider.getNombre());
+        DefaultMutableTreeNode poder;
+        poder = new DefaultMutableTreeNode(lider.getPoder());
+        superheroe.add(poder);
+        tipo.add(superheroe);
+        nodoescuadron.add(tipo);
+        raiz.add(nodoescuadron);
+        m.reload();
         VentanaEscuadronSuperheroes.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_AgregarMiembroSuperheroeMouseClicked
@@ -841,6 +859,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void VerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerDatosActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_VerDatosActionPerformed
 
     public boolean ValidacionNombreExistente(String nombre) {
