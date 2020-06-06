@@ -98,6 +98,7 @@ public class Principal extends javax.swing.JFrame {
         JtreeEscuadrones = new javax.swing.JTree();
         AgregarEscuadrones = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
 
         EliminarSuperheroe.setText("Eliminar Super Heroe");
         EliminarSuperheroe.addActionListener(new java.awt.event.ActionListener() {
@@ -520,15 +521,23 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agregar Escuadron", jPanel2);
 
+        jLabel12.setText("Sorry, no me quedo tiempo");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(308, 308, 308)
+                .addComponent(jLabel12)
+                .addContainerGap(368, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel12)
+                .addContainerGap(359, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Simulacion", jPanel3);
@@ -776,8 +785,8 @@ public class Principal extends javax.swing.JFrame {
         DefaultTreeModel m = (DefaultTreeModel) JtreeEscuadrones.getModel();
         DefaultMutableTreeNode raiz
                 = (DefaultMutableTreeNode) m.getRoot();
-        DefaultMutableTreeNode nodoescuadron;
-        nodoescuadron = new DefaultMutableTreeNode(new Escuadron(nombre, base, "Villanos", lider));
+//        DefaultMutableTreeNode nodoescuadron;
+//        nodoescuadron = new DefaultMutableTreeNode(new Escuadron(nombre, base, "Villanos", lider));
         DefaultMutableTreeNode tipo;
         tipo = new DefaultMutableTreeNode("Villanos");
         DefaultMutableTreeNode superheroe;
@@ -786,9 +795,10 @@ public class Principal extends javax.swing.JFrame {
         poder = new DefaultMutableTreeNode(lider.getPoder());
         superheroe.add(poder);
         tipo.add(superheroe);
-        nodoescuadron.add(tipo);
-        raiz.add(nodoescuadron);
+        raiz.add(tipo);
         m.reload();
+        nombreescuadron.setText("");
+        baseescuadron.setText("");
         VentanaEscuadronVillanos.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_AgregarMiembroVillanoMouseClicked
@@ -824,8 +834,8 @@ public class Principal extends javax.swing.JFrame {
         DefaultTreeModel m = (DefaultTreeModel) JtreeEscuadrones.getModel();
         DefaultMutableTreeNode raiz
                 = (DefaultMutableTreeNode) m.getRoot();
-        DefaultMutableTreeNode nodoescuadron;
-        nodoescuadron = new DefaultMutableTreeNode(new Escuadron(nombre, base, "Heroes", lider));
+//        DefaultMutableTreeNode nodoescuadron;
+//        nodoescuadron = new DefaultMutableTreeNode(new Escuadron(nombre, base, "Heroes", lider));
         DefaultMutableTreeNode tipo;
         tipo = new DefaultMutableTreeNode("Super Heroes");
         DefaultMutableTreeNode superheroe;
@@ -834,9 +844,10 @@ public class Principal extends javax.swing.JFrame {
         poder = new DefaultMutableTreeNode(lider.getPoder());
         superheroe.add(poder);
         tipo.add(superheroe);
-        nodoescuadron.add(tipo);
-        raiz.add(nodoescuadron);
+        raiz.add(tipo);
         m.reload();
+        nombreescuadron.setText("");
+        baseescuadron.setText("");
         VentanaEscuadronSuperheroes.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_AgregarMiembroSuperheroeMouseClicked
@@ -862,7 +873,7 @@ public class Principal extends javax.swing.JFrame {
             JtreeEscuadrones.setSelectionRow(row);
             Object v1 = JtreeEscuadrones.getSelectionPath().getLastPathComponent();
             nodo_seleccionado = (DefaultMutableTreeNode) v1;
-            if (nodo_seleccionado.getUserObject() instanceof Escuadron) {
+            if (nodo_seleccionado.getUserObject() instanceof SuperHumano) {
                 escuadronseleccionado = (Escuadron) nodo_seleccionado.getUserObject();
                 PopUpTree.show(evt.getComponent(), evt.getX(), evt.getY());
             }
@@ -875,7 +886,17 @@ public class Principal extends javax.swing.JFrame {
 
     private void VerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerDatosActionPerformed
         // TODO add your handling code here:
-
+        String nombre, poder, debilidad;
+        double fuerza, amental, afisica;
+        SuperHumano sh = new SuperHumano();
+        nombre = sh.getNombre();
+        poder = sh.getPoder();
+        debilidad = sh.getDebilidad();
+        fuerza = sh.getFuerza();
+        afisica = sh.getAgilidadfisica();
+        amental = sh.getAgilidadmental();
+        JOptionPane.showMessageDialog(this, "Nombre: " + nombre + "\n" + "Poder: " + poder + "\n" + "Debilidad: " + debilidad + "\n"
+        + "Fuerza: " + fuerza + "\n" + "Aglidad Fisica: " + afisica + "\n" + "Agilidad Mental: " + amental);
     }//GEN-LAST:event_VerDatosActionPerformed
 
     public boolean ValidacionNombreExistente(String nombre) {
@@ -971,6 +992,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
